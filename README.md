@@ -1,5 +1,6 @@
 Product Survey Form
 
+
 A responsive and interactive survey form that collects user opinions about a product. This project demonstrates modern HTML, CSS, and JavaScript techniques to create a professional, user-friendly form.
 
 Features
@@ -31,6 +32,6 @@ License
 
 This project uses images from Pexels (https://www.pexels.com) and is free to use for learning and portfolio purposes.
 
----
 
-Feel free to customize and expand this form for your own projects or client work!
+
+
