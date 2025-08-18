@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Feedback Survey</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Product Feedback Survey</h1>
+  <p>We value your opinion! Please fill out this form.</p>
+
+  <form id="survey-form">
+    <fieldset>
+      <label for="first-name">First Name:
+        <input id="first-name" name="first-name" type="text" required />
+      </label>
+      <label for="last-name">Last Name:
+        <input id="last-name" name="last-name" type="text" required />
+      </label>
+      <label for="email">Email:
+        <input id="email" name="email" type="email" required />
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your Experience with the Product</legend>
+      <label for="rating">Rate the product (1-5):
+        <input id="rating" type="number" name="rating" min="1" max="5" required />
+      </label>
+      <label for="features">Favorite Features:
+        <textarea id="features" name="features" rows="3" placeholder="What do you like about the product?"></textarea>
+      </label>
+      <label for="improvements">Suggestions for Improvement:
+        <textarea id="improvements" name="improvements" rows="3" placeholder="Any improvements you’d like to see?"></textarea>
+      </label>
+    </fieldset>
+
+    <label for="terms-and-conditions">
+      <input class="inline" id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" /> I agree to the <a href="#">terms and conditions</a>
+    </label>
+
+    <input type="submit" value="Submit Feedback" />
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
