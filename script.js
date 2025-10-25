@@ -1,41 +1,56 @@
-const form = document.getElementById('survey-form');
-const firstName = document.getElementById('first-name');
-const email = document.getElementById('email');
-const terms = document.getElementById('terms-and-conditions');
-const submitBtn = form.querySelector('input[type="submit"]');
-const features = document.getElementById('features');
-const improvements = document.getElementById('improvements');
+/* -------------------------------------------------
+   Elements
+   ------------------------------------------------- */
+const form          = document.getElementById('survey-form');
+const firstName     = document.getElementById('first-name');
+const email         = document.getElementById('email');
+const terms         = document.getElementById('terms-and-conditions');
+const submitBtn     = document.getElementById('submit-btn');
+const textareas     = document.querySelectorAll('textarea[data-counter]');
 
-// Disable submit initially
-submitBtn.disabled = true;
-
-// Enable submit only if required fields are filled
+/* -------------------------------------------------
+   Submit button toggle
+   ------------------------------------------------- */
 function toggleSubmit() {
-  submitBtn.disabled = !(firstName.value && email.value && terms.checked);
+  const valid = firstName.value.trim() &&
+                email.value.trim() &&
+                terms.checked;
+  submitBtn.disabled = !valid;
 }
-
 [firstName, email].forEach(el => el.addEventListener('input', toggleSubmit));
 terms.addEventListener('change', toggleSubmit);
+toggleSubmit();   // initial state
 
-// Character counters for textareas
-function addCounter(textarea) {
+/* -------------------------------------------------
+   Character counters (reusable)
+   ------------------------------------------------- */
+const MAX = 200;
+textareas.forEach(textarea => {
   const counter = document.createElement('small');
-  counter.textContent = `0/200`;
-  textarea.parentNode.appendChild(counter);
+  counter.className = 'char-counter';
+  counter.textContent = `0/${MAX}`;
+  counter.setAttribute('aria-live', 'polite');
+  textarea.after(counter);
 
-  textarea.addEventListener('input', () => {
-    if (textarea.value.length > 200) textarea.value = textarea.value.slice(0, 200);
-    counter.textContent = `${textarea.value.length}/200`;
-  });
-}
+  const update = () => {
+    let len = textarea.value.length;
+    if (len > MAX) {
+      textarea.value = textarea.value.slice(0, MAX);
+      len = MAX;
+    }
+    counter.textContent = `${len}/${MAX}`;
+    counter.style.color = len > MAX * 0.9 ? '#ff5555' : '#ddd';
+  };
+  textarea.addEventListener('input', update);
+  update();   // init
+});
 
-addCounter(features);
-addCounter(improvements);
-
-// Form submission alert
-form.addEventListener('submit', function(e) {
+/* -------------------------------------------------
+   Form submission (demo)
+   ------------------------------------------------- */
+form.addEventListener('submit', e => {
   e.preventDefault();
-  alert(`Thank you, ${firstName.value}! Your feedback has been submitted.`);
+  alert(`Thank you, ${firstName.value.trim()}! Your feedback has been submitted.`);
   form.reset();
-  submitBtn.disabled = true;
+  toggleSubmit();   // keep button disabled after reset
 });
