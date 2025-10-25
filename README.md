@@ -1,4 +1,4 @@
-<img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/4f4dea05-a6ae-4c09-9dca-f45da29fee6f" />
+<img width="300" height="300" alt="Image" src="https://github.com/user-attachments/assets/4f4dea05-a6ae-4c09-9dca-f45da29fee6f" />
 
 # Product Survey Form 🚀
 
