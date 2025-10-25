@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="logo.png" alt="Project Logo" width="150"/>
-</p>
+<img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/4f4dea05-a6ae-4c09-9dca-f45da29fee6f" />
 
 # Product Survey Form 🚀
 
