@@ -56,7 +56,11 @@ A responsive and interactive survey form that collects user opinions about a pro
 Demo GIF 🎬
 
 
-https://github.com/user-attachments/assets/315c61de-d533-4534-a77c-f805930a5c98
+
+
+https://github.com/user-attachments/assets/8a958125-8361-450b-bbc2-0f0799abe1b6
+
+
 
 
 
